@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Show #{{ note.id }}</h1>
+
+    <ul class="list-group">
+    <li class="list-group-item">{{ note.name }}</li>
+    <li class="list-group-item">{{ note.category }}</li>
+    <li class="list-group-item">{{ note.priority }}</li>
+    <li class="list-group-item">{{ note.deadline|date('Y-m-d H:i:s') }}</li>
+    <li class="list-group-item">{{ note.statusdone }}</li>
+    </ul>
+
+    <a href="{{ path('note_edit', {'id': note.id}) }}" class="btn btn-warning">Edit</a>
+{% endblock %}

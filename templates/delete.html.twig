@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>Delete Note</h1>
+
+<p>Are you sure?</p>
+
+<form method="post">
+
+    <button class="btn btn-danger">Yes</button>
+
+    <a href="{{ path('note_show', {'id': id}) }}" class="btn btn-info">No</a>
+
+</form>
+
+
+
+{% endblock %}
