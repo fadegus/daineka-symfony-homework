@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        USER_ID: ${UID:-1000}
+        GROUP_ID: ${GID:-1000}
+    volumes:
+      - ./:/var/www:cached
+      - sqlite_data:/var/www/var/data
+    environment:
+      DATABASE_URL: "sqlite:///%kernel.project_dir%/var/data/app.db"
+
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www:cached
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - php
+  # rabbitmq:
+  #   image: rabbitmq:4-management
+  #   hostname: my-rabbit
+  #   ports:
+  #     - "5672:5672"   # AMQP protocol port
+  #     - "15672:15672" # Management UI port
+  #   environment:
+  #     RABBITMQ_DEFAULT_USER: guest
+  #     RABBITMQ_DEFAULT_PASS: guest
+  #   volumes:
+  #     - rabbitmq_data:/var/lib/rabbitmq
+
+volumes:
+  sqlite_data:
+  # rabbitmq_data:
