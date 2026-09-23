@@ -2,6 +2,8 @@
 
 ### docker compose up --build
 
+в контейнере запустить compose install
+
 http://localhost:8080/
 
 <img width="1920" height="994" alt="image" src="https://github.com/user-attachments/assets/a7e62b90-d97f-4fdf-ac63-2dfb4b4a3cc1" />
@@ -32,6 +34,6 @@ http://localhost:8080/
 
 - Отработка, установка и ознакомление с основными пакетами symfony
 - Работа с генерацией кода
-- Настройка прокта (sqlite, transports), организация docker окружения в минимальном исполнении 
+- Настройка проекта (sqlite, transports), организация docker окружения в минимальном исполнении 
 - Работа с CRUD, формой и ее валидацией, route-ами, symfony/messenger
 - Минимальная стилизация и работа с шаблонами twig
