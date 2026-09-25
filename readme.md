@@ -2,7 +2,7 @@
 
 ### docker compose up --build
 
-в контейнере запустить compose install
+в контейнере запустить composer install
 
 http://localhost:8080/
 
